@@ -26,7 +26,7 @@ export default function AuthTokenDebugPage() {
                 setTokens(data);
                 // コンソールにも出力
                 console.log("Google OAuth tokens:", data);
-            } catch (e) {
+            } catch {
                 setTokens({ error: "トークン取得に失敗しました" });
             }
         };

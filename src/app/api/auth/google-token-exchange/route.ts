@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
             access_token: data.access_token,
             refresh_token: data.refresh_token,
         });
-    } catch (e) {
+    } catch {
         return NextResponse.json({ error: "GoogleトークンAPI通信エラー" }, { status: 500 });
     }
 }

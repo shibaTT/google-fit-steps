@@ -1,6 +1,5 @@
 "use client";
 import StepsChart, { StepData } from "./StepsChart";
-import StepsSum from "./StepsSum";
 
 interface Props {
   steps: StepData[];

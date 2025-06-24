@@ -1,5 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-
 /**
  * Google OAuth2のリフレッシュトークンからアクセストークンを取得
  */
