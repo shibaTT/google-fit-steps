@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Google Fit 歩数可視化アプリ
 
-## Getting Started
+Google Fit の REST API を利用し、過去 1 週間分の歩数データを取得・グラフ表示する Web アプリケーションです。
 
-First, run the development server:
+## セットアップ手順
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. リポジトリをクローン
+    ```bash
+    git clone https://github.com/shibaTT/google-fit-steps.git
+    cd google-fit-steps
+    ```
+2. 依存パッケージをインストール
+    ```bash
+    npm install
+    ```
+3. Google Cloud Console で OAuth クライアント ID/シークレットを取得し、下記の環境変数を設定
+    - `.env.local` ファイルを作成し、以下を記載
+        ```env
+        GOOGLE_CLIENT_ID=xxx.apps.googleusercontent.com
+        GOOGLE_CLIENT_SECRET=xxxxxxx
+        NEXTAUTH_URL=http://localhost:3000
+        NEXTAUTH_SECRET=任意のランダム文字列
+        ```
+4. 開発サーバー起動
+    ```bash
+    npm run dev
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Google 認証・API スコープ
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   Google アカウントでログインし、`https://www.googleapis.com/auth/fitness.activity.read` スコープで歩数データを取得します。
+-   Google Cloud Console で「OAuth 同意画面」設定・承認済みリダイレクト URI（例: `http://localhost:3000/api/auth/callback/google`）の登録が必要です。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 主な技術スタック
 
-## Learn More
+-   Next.js (App Router)
+-   TypeScript
+-   Tailwind CSS + daisyUI
+-   next-auth (Google OAuth)
+-   Chart.js
 
-To learn more about Next.js, take a look at the following resources:
+## デプロイ
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   GitHub Pages 等で静的デプロイ可能
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ライセンス
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
