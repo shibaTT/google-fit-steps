@@ -28,20 +28,20 @@ Google Fit の REST API を利用し、過去 1 週間分の歩数データを�
     npm run dev
     ```
 
-## Google Fit認証・トークン取得
+## Google Fit 認証・トークン取得
 
--   Google Cloud ConsoleでリダイレクトURIに`http://localhost:3000/auth-debug`を登録
--   `/auth-debug`ページの手順で認可コード→リフレッシュトークンを取得
+-   Google Cloud Console でリダイレクト URI に`http://localhost:3000/auth-debug`を登録
+-   `/auth-debug`ページの手順で認可コード → リフレッシュトークンを取得
 -   `.env.local`に`GOOGLE_FIT_REFRESH_TOKEN`をセット
 -   アクセストークンは自動更新されるため通常は不要
 
 ## 主な機能
 
--   過去7日間の歩数グラフ表示（Chart.js）
--   1〜7日分（今日除く）の歩数合算値をテーブル一覧で表示
+-   過去 7 日間の歩数グラフ表示（Chart.js）
+-   1〜7 日分（今日除く）の歩数合算値をテーブル一覧で表示
 -   日別歩数のテーブル一覧
 -   固定アカウントの歩数のみ常時表示（認証スキップ・リフレッシュトークン自動更新）
--   Google Fit認証用デバッグページ（`/auth-debug`）
+-   Google Fit 認証用デバッグページ（`/auth-debug`）
 
 ## 技術スタック
 

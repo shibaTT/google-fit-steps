@@ -20,7 +20,7 @@ Google Fit の REST API を利用し、過去 1 週間分の歩数データを�
 ### 2. 技術スタック・ルール
 
 -   Next.js（App Router 推奨）
--   UI は Tailwind CSS（daisyUI等のラッパー利用可）
+-   UI は Tailwind CSS（daisyUI 等のラッパー利用可）
 -   チャート描画は Chart.js
 -   Google OAuth 2.0 認証を利用
 -   デプロイは GitHub Pages
@@ -34,22 +34,22 @@ Google Fit の REST API を利用し、過去 1 週間分の歩数データを�
 -   変数・関数・コンポーネント名は意味が分かる英語で記述する
 -   コメントは必要最小限、分かりやすく
 -   機能追加・バグ修正ごとにコミットを分ける
--   README・設計書・instructionsは常に最新
+-   README・設計書・instructions は常に最新
 
 ### 4. ディレクトリ構成（例）
 
 -   src/app/…（App Router）
--   src/components/…（UIコンポーネント）
+-   src/components/…（UI コンポーネント）
 -   src/lib/…（API/ロジック）
 -   docs/…（設計書）
 -   .github/instructions/…（運用・ルール）
 
 ### 5. 固定アカウント・認証仕様
 
--   固定アカウントのリフレッシュトークンを.env.localで管理
+-   固定アカウントのリフレッシュトークンを.env.local で管理
 -   認証スキップ・自動アクセストークン更新
--   Google Fit認証用デバッグページ（/auth-debug）でトークン取得
--   不要な認証UI・APIは随時整理
+-   Google Fit 認証用デバッグページ（/auth-debug）でトークン取得
+-   不要な認証 UI・API は随時整理
 
 ---
 
