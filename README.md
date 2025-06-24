@@ -1,4 +1,4 @@
-# Google Fit 歩数可視化アプリ
+# Google Fit 歩数取得アプリ
 
 Google Fit の REST API を利用し、過去 1 週間分の歩数データを取得・グラフ・合算・一覧表示する Web アプリケーションです。
 

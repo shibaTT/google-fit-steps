@@ -38,12 +38,18 @@ Google Fit の REST API を利用し、過去 1 週間分の歩数データを�
 
 ### 4. ディレクトリ構成（例）
 
--   `/app` ... Next.js App Router 配下
--   `/components` ... UI コンポーネント
--   `/lib` ... API/ロジック
--   `/docs` ... 設計書
--   `/public` ... 静的ファイル
--   `/api` ... APIルート
+-   src/app/…（App Router）
+-   src/components/…（UIコンポーネント）
+-   src/lib/…（API/ロジック）
+-   docs/…（設計書）
+-   .github/instructions/…（運用・ルール）
+
+### 5. 固定アカウント・認証仕様
+
+-   固定アカウントのリフレッシュトークンを.env.localで管理
+-   認証スキップ・自動アクセストークン更新
+-   Google Fit認証用デバッグページ（/auth-debug）でトークン取得
+-   不要な認証UI・APIは随時整理
 
 ---
 
