@@ -2,6 +2,8 @@ import NextAuth, { NextAuthOptions, Session, Account } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { JWT } from "next-auth/jwt";
 
+// export const runtime = "edge"; // Edge Runtime指定は削除（Node.js API依存のため）
+
 const authOptions: NextAuthOptions = {
     providers: [
         GoogleProvider({
