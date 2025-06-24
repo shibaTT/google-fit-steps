@@ -20,33 +20,33 @@ export default function StepsClientView({ steps }: Props) {
 
     return (
         <div className="w-full max-w-2xl mx-auto flex flex-col gap-8">
-            {/* チャート中央寄せ＋丸み・シャドウ強化 */}
+            {/* チャート中央寄せ */}
             <div className="flex justify-center">
                 <div className="w-full max-w-xl">
                     <StepsChart data={sortedSteps} />
                 </div>
             </div>
-            {/* 合算歩数カード: 丸み・シャドウ強化 */}
+            {/* 合算歩数カード: 柔らかいシャドウ・枠線なし・丸み強調 */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {sums.map((sum, i) => (
-                    <div key={i} className="card bg-base-100 rounded-3xl shadow-2xl border border-base-200 flex flex-col items-center p-4 transition-transform hover:scale-105">
+                    <div key={i} className="card bg-base-100 rounded-3xl shadow-md flex flex-col items-center p-4 transition-transform hover:scale-105">
                         <div className="flex items-center gap-2 mb-2">
                             <span className="badge badge-primary text-xs px-2 py-1 rounded-full">{i + 1}日合計</span>
                             <FaWalking className="text-primary text-lg" aria-label="歩数アイコン" />
                         </div>
-                        <span className="text-2xl font-bold text-primary-content drop-shadow-lg">{sum.toLocaleString()}</span>
+                        <span className="text-2xl font-bold text-primary-content">{sum.toLocaleString()}</span>
                         <span className="text-xs text-base-content">歩</span>
                     </div>
                 ))}
             </div>
-            {/* 日別歩数カードリスト: 丸み・シャドウ強化＋降順 */}
+            {/* 日別歩数カードリスト: 柔らかいシャドウ・枠線なし・丸み強調 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {sortedSteps.map((s, i) => (
-                    <div key={i} className="card bg-base-200 rounded-2xl shadow-xl flex flex-row items-center p-4 gap-4 border border-base-300">
-                        <FaWalking className="text-accent text-2xl drop-shadow" aria-label="歩数アイコン" />
+                    <div key={i} className="card bg-base-200 rounded-2xl shadow-md flex flex-row items-center p-4 gap-4">
+                        <FaWalking className="text-accent text-2xl" aria-label="歩数アイコン" />
                         <div className="flex flex-col">
                             <span className="text-sm text-base-content/70">{s.date}</span>
-                            <span className="text-lg font-semibold text-accent-content drop-shadow">{s.steps.toLocaleString()} <span className="text-xs">歩</span></span>
+                            <span className="text-lg font-semibold text-accent-content">{s.steps.toLocaleString()} <span className="text-xs">歩</span></span>
                         </div>
                     </div>
                 ))}
