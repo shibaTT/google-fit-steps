@@ -1,25 +1,23 @@
-import { getServerSession } from "next-auth/next";
-import SignInButton from "../components/SignInButton";
+import { fetchGoogleFitStepsFixedAccount } from "../lib/fetchGoogleFitStepsFixedAccount";
 import StepsChart from "../components/StepsChart";
-import { Session } from "next-auth";
 
 export default async function HomePage() {
-  const session = (await getServerSession()) as (Session & { accessToken?: string }) | null;
-
-  if (!session) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-base-100">
-        <h1 className="text-3xl font-bold mb-8">Google Fit 歩数可視化</h1>
-        <SignInButton />
-      </main>
-    );
+  // ログイン不要・常に特定アカウントの歩数を表示
+  let steps = [];
+  let error = null;
+  try {
+    steps = await fetchGoogleFitStepsFixedAccount();
+  } catch (e) {
+    error = (e as Error).message;
   }
-
-  // 認証済みの場合は歩数グラフを表示
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-base-100">
-      <h1 className="text-3xl font-bold mb-8">Google Fit 歩数可視化</h1>
-      <StepsChart accessToken={session.accessToken ?? ""} />
+      <h1 className="text-3xl font-bold mb-8">Google Fit 歩数可視化（固定アカウント）</h1>
+      {error ? (
+        <div className="alert alert-error shadow-lg">{error}</div>
+      ) : (
+        <StepsChart data={steps} />
+      )}
     </main>
   );
 }
