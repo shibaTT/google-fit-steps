@@ -1,9 +1,10 @@
 import { fetchGoogleFitStepsFixedAccount } from "../lib/fetchGoogleFitStepsFixedAccount";
-import StepsChart from "../components/StepsChart";
+import StepsClientView from "../components/StepsClientView";
+import { StepData } from "../components/StepsChart";
 
 export default async function HomePage() {
-    // ログイン不要・常に特定アカウントの歩数を表示
-    let steps = [];
+    // サーバー側で歩数データ取得
+    let steps: StepData[] = [];
     let error = null;
     try {
         steps = await fetchGoogleFitStepsFixedAccount();
@@ -16,7 +17,7 @@ export default async function HomePage() {
             {error ? (
                 <div className="alert alert-error shadow-lg">{error}</div>
             ) : (
-                <StepsChart data={steps} />
+                <StepsClientView steps={steps} />
             )}
         </main>
     );
