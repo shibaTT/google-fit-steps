@@ -1,4 +1,3 @@
-"use client";
 import { fetchGoogleFitStepsFixedAccount } from "../lib/fetchGoogleFitStepsFixedAccount";
 import StepsClientView from "../components/StepsClientView";
 import { StepData } from "../components/StepsChart";
