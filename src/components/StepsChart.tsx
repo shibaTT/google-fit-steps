@@ -76,7 +76,7 @@ export default function StepsChart({ data }: StepsChartProps) {
         );
 
     return (
-        <div className="w-full max-w-md card bg-base-100 shadow-xl p-6">
+        <div className="w-full max-w-xl mx-auto card bg-base-100 shadow-2xl rounded-3xl p-6 flex justify-center">
             <canvas id={chartId} height={300}></canvas>
         </div>
     );
