@@ -1,12 +1,12 @@
 ---
-description: "Google Fit 歩数取得アプリのコーディングルール・運用ルール"
+description: "Google Fit 歩数取得アプリのコーディングルール・運用ルール（2025/06/24更新）"
 applyTo: "**"
 ---
 
 # コーディングルール・運用ルール
 
 -   TypeScript を利用し、型安全を徹底する
--   UI は Tailwind CSS（Flost や daisyUI 等のラッパー利用可）
+-   UI は Tailwind CSS（daisyUI 等のラッパー利用可）
 -   コード整形は Prettier、静的解析は ESLint を利用する
 -   変数・関数・コンポーネント名は意味が分かる英語で記述する
 -   1 ファイル 1 責任の原則を意識する
@@ -16,3 +16,5 @@ applyTo: "**"
 -   main/master ブランチへの直接コミットは禁止。必ず Pull Request 経由でマージする
 -   コミットメッセージは簡潔かつ内容が分かるように記載する
 -   README や設計書、instructions ファイルは常に最新に保つ
+-   固定アカウント運用・認証スキップ・リフレッシュトークン自動更新の仕様を遵守
+-   不要な API・認証処理・UI は随時整理・削除する

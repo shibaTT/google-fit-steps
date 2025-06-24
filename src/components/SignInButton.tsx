@@ -8,3 +8,5 @@ export default function SignInButton() {
         </button>
     );
 }
+
+// このファイルは現状未使用。Google認証UI・APIは不要なため削除予定。

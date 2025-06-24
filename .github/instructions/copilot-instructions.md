@@ -4,7 +4,7 @@
 
 ## プロジェクト概要
 
-Google Fit の REST API を利用し、過去 1 週間分の歩数データを取得・表示する Web アプリケーション（Next.js + Tailwind CSS）。
+Google Fit の REST API を利用し、過去 1 週間分の歩数データを取得・グラフ・合算・一覧表示する Web アプリケーション（Next.js + Tailwind CSS + daisyUI）。
 
 ---
 
@@ -15,15 +15,16 @@ Google Fit の REST API を利用し、過去 1 週間分の歩数データを�
 -   機能追加・バグ修正ごとに GitHub Issue を作成し、必ずその Issue に紐づく Pull Request を作成する
 -   作業ごと（機能単位・バグ単位）にコミットを分割する
 -   コミットメッセージは簡潔かつ内容が分かるように記載する
--   main ブランチへの直接コミットは禁止。必ず Pull Request 経由でマージする
+-   main/master ブランチへの直接コミットは禁止。必ず Pull Request 経由でマージする
 
 ### 2. 技術スタック・ルール
 
 -   Next.js（App Router 推奨）
--   UI は Tailwind CSS（Flost や daisyUI 等のラッパー利用可）
--   チャート描画は Chart.js または Recharts
+-   UI は Tailwind CSS（daisyUI 等のラッパー利用可）
+-   チャート描画は Chart.js
 -   Google OAuth 2.0 認証を利用
 -   デプロイは GitHub Pages
+-   固定アカウント運用・認証スキップ・リフレッシュトークン自動更新
 
 ### 3. コーディングルール
 
@@ -33,19 +34,22 @@ Google Fit の REST API を利用し、過去 1 週間分の歩数データを�
 -   変数・関数・コンポーネント名は意味が分かる英語で記述する
 -   コメントは必要最小限、分かりやすく
 -   機能追加・バグ修正ごとにコミットを分ける
+-   README・設計書・instructions は常に最新
 
 ### 4. ディレクトリ構成（例）
 
--   `/app` ... Next.js App Router 配下
--   `/components` ... UI コンポーネント
--   `/lib` ... API ラッパーやユーティリティ
--   `/styles` ... Tailwind 等のスタイル
--   `/public` ... 静的ファイル
+-   src/app/…（App Router）
+-   src/components/…（UI コンポーネント）
+-   src/lib/…（API/ロジック）
+-   docs/…（設計書）
+-   .github/instructions/…（運用・ルール）
 
-### 5. その他
+### 5. 固定アカウント・認証仕様
 
--   Issue/Pull Request のテンプレートを活用する
--   README や設計書、instructions ファイルは常に最新に保つ
+-   固定アカウントのリフレッシュトークンを.env.local で管理
+-   認証スキップ・自動アクセストークン更新
+-   Google Fit 認証用デバッグページ（/auth-debug）でトークン取得
+-   不要な認証 UI・API は随時整理
 
 ---
 
