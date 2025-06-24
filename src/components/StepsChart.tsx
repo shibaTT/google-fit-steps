@@ -1,14 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
-
-interface StepsChartProps {
-    accessToken: string;
-}
+import { fetchGoogleFitSteps } from "../lib/fetchGoogleFitSteps";
 
 export interface StepData {
     date: string;
     steps: number;
+}
+
+interface StepsChartProps {
+    accessToken: string;
 }
 
 export default function StepsChart({ accessToken }: StepsChartProps) {
@@ -22,20 +23,9 @@ export default function StepsChart({ accessToken }: StepsChartProps) {
             setLoading(true);
             setError(null);
             try {
-                // Google Fit APIから過去7日分の歩数データを取得する
-                // 実際のAPIリクエストは後で実装
-                // 仮データで表示
-                const now = new Date();
-                const mock: StepData[] = Array.from({ length: 7 }).map((_, i) => {
-                    const d = new Date(now);
-                    d.setDate(now.getDate() - (6 - i));
-                    return {
-                        date: d.toLocaleDateString(),
-                        steps: Math.floor(Math.random() * 10000),
-                    };
-                });
-                setData(mock);
-            } catch {
+                const steps = await fetchGoogleFitSteps(accessToken);
+                setData(steps);
+            } catch (err) {
                 setError("歩数データの取得に失敗しました");
             } finally {
                 setLoading(false);
