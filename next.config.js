@@ -6,8 +6,8 @@ const nextConfig = {
     // Cloudflare Workers用: output: undefined, basePath/assetPrefixなし
     // GitHub Pages用: output: "export", basePath/assetPrefixあり
     output: process.env.CF_PAGES ? undefined : "export",
-    basePath: process.env.CF_PAGES ? undefined : (isProd ? `/${repoName}` : ""),
-    assetPrefix: process.env.CF_PAGES ? undefined : (isProd ? `/${repoName}/` : ""),
+    basePath: process.env.CF_PAGES ? undefined : isProd ? `/${repoName}` : "",
+    assetPrefix: process.env.CF_PAGES ? undefined : isProd ? `/${repoName}/` : "",
     trailingSlash: true,
 };
 
