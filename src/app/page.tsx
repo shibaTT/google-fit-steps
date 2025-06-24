@@ -28,7 +28,7 @@ export default async function HomePage() {
 }
 
 // クライアント側でn選択＆合算表示
-'use client';
+("use client");
 import { StepData } from "../components/StepsChart";
 import StepsSum from "../components/StepsSum";
 import { useState } from "react";
@@ -41,10 +41,12 @@ function SumWithSelector({ steps }: { steps: StepData[] }) {
             <select
                 className="select select-bordered w-20"
                 value={n}
-                onChange={e => setN(Number(e.target.value))}
+                onChange={(e) => setN(Number(e.target.value))}
             >
                 {[...Array(7)].map((_, i) => (
-                    <option key={i + 1} value={i + 1}>{i + 1}日</option>
+                    <option key={i + 1} value={i + 1}>
+                        {i + 1}日
+                    </option>
                 ))}
             </select>
             <StepsSum data={steps} n={n} />
