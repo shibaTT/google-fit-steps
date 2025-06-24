@@ -50,9 +50,20 @@ Google Fit の REST API を利用し、過去 1 週間分の歩数データを�
 -   Tailwind CSS + daisyUI
 -   Chart.js
 
-## デプロイ
+## デプロイ（GitHub Pages対応）
 
--   GitHub Pages 等で静的デプロイ可能
+1. `next.config.js` で `output: 'export'`、`basePath`、`assetPrefix` を設定済み
+2. 静的エクスポート
+    ```bash
+    npm run build && npm run export
+    ```
+    - `out/` ディレクトリが生成される
+3. GitHub Pages の公開設定で `out/` ディレクトリを指定
+    - GitHubリポジトリの「Settings」→「Pages」→「Source」で`/out`を選択
+4. 本番URL例: `https://ユーザー名.github.io/google-fit-steps/`
+
+- ルート以外のページで404になる場合は`404.html`が自動生成されるので対応可
+- `basePath`/`assetPrefix`はリポジトリ名に合わせて自動設定
 
 ## ライセンス
 
