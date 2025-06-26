@@ -29,6 +29,7 @@ export async function fetchGoogleFitStepsFixedAccount(): Promise<StepData[]> {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
+    next: { revalidate: 3600 },
   });
   if (!res.ok) throw new Error("Failed to fetch Google Fit steps");
   const json = await res.json();
