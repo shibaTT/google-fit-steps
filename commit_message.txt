@@ -1,1 +1,0 @@
-fix: ISRを導入しCloudflare Pagesのエラーを解消
