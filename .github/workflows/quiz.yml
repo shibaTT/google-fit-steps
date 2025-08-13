@@ -12,7 +12,6 @@ permissions:
 
 jobs:
     quiz:
-        name: PR Quiz
         runs-on: ubuntu-latest
         if: github.event.review.state == 'approved'
 
@@ -21,9 +20,9 @@ jobs:
               id: checkout
               uses: actions/checkout@v4
 
-            - name: Serve Quiz
+            - name: shibaTT/PR Quiz
               id: serve-quiz
-              uses: shibaTT/pr-quiz@v0.1.1
+              uses: shibaTT/pr-quiz@v0.1.2
               with:
                   github-token: ${{ secrets.QUIZ_GITHUB_TOKEN }}
                   ngrok-authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
