@@ -1,0 +1,31 @@
+# quiz.yml
+
+name: PR Quiz
+
+on:
+    pull_request_review:
+        types: [submitted]
+
+permissions:
+    contents: read
+    pull-requests: read
+
+jobs:
+    quiz:
+        name: PR Quiz
+        runs-on: ubuntu-latest
+        environment: develop # TODO: 必要に応じて変更してください
+        if: github.event.review.state == 'approved'
+
+        steps:
+            - name: Checkout
+              id: checkout
+              uses: actions/checkout@v4
+
+            - name: Serve Quiz
+              id: serve-quiz
+              uses: shibaTT/pr-quiz
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+                  ngrok-authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
