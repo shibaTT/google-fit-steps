@@ -23,7 +23,7 @@ jobs:
 
             - name: Serve Quiz
               id: serve-quiz
-              uses: shibaTT/pr-quiz
+              uses: shibaTT/pr-quiz@v0.1.1
               with:
                   github-token: ${{ secrets.QUIZ_GITHUB_TOKEN }}
                   ngrok-authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
