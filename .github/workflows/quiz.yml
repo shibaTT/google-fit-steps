@@ -24,6 +24,6 @@ jobs:
               id: serve-quiz
               uses: shibaTT/pr-quiz@v0.1.2
               with:
-                  github-token: ${{ secrets.QUIZ_GITHUB_TOKEN }}
+                  quiz-github-token: ${{ secrets.QUIZ_GITHUB_TOKEN }}
                   ngrok-authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
                   model: openai/gpt-4.1
