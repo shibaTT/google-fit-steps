@@ -1,0 +1,29 @@
+# quiz.yml
+
+name: PR Quiz
+
+on:
+    pull_request_review:
+        types: [submitted]
+
+permissions:
+    contents: read
+    pull-requests: read
+
+jobs:
+    quiz:
+        runs-on: ubuntu-latest
+        if: github.event.review.state == 'approved'
+
+        steps:
+            - name: Checkout
+              id: checkout
+              uses: actions/checkout@v4
+
+            - name: shibaTT/PR Quiz
+              id: serve-quiz
+              uses: shibaTT/pr-quiz@v0.1.3
+              with:
+                  quiz-github-token: ${{ secrets.QUIZ_GITHUB_TOKEN }}
+                  ngrok-authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
+                  model: openai/gpt-4.1
