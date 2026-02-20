@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export const runtime = "edge"; // Edge Runtimeを使用
-
 export async function POST(req: NextRequest) {
     const { code } = await req.json();
     if (!code) {

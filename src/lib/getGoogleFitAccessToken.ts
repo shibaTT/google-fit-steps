@@ -19,6 +19,7 @@ export async function getGoogleFitAccessToken(): Promise<string> {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: params.toString(),
     });
+    console.log(res);
     if (!res.ok) throw new Error("Googleアクセストークンの取得に失敗しました");
     const json = await res.json();
     return json.access_token;
